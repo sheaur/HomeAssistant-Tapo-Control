@@ -1,0 +1,144 @@
+{
+  "title": "Tapo: Control Cámaras",
+  "config": {
+    "flow_title": "Tapo: Control Cámaras {name}",
+    "step": {
+      "reauth_confirm_stream": {
+        "data": {
+          "username": "Cuenta de cámara - Username",
+          "password": "Cuenta de cámara - Password"
+        },
+        "description": "Sus contraseñas cambiaron. Ingrese contraseñas actualizadas.\n\nLa cuenta de la cámara se crea a través de la aplicación Tapo en:\nConfiguración de la cámara > Configuración avanzada > Cuenta de la cámara.\n\nPuede probar si estas credenciales funcionan a través de rtsp stream , por ejemplo VLC usando link\nrtsp://nombre de usuario:contraseña@Dirección IP:554/stream1"
+      },
+      "reauth_confirm_cloud": {
+        "data": {
+          "cloud_password": "Contraseña de la nube"
+        },
+        "description": "La cámara requiere su contraseña de la nube para controlarla.\nEsta es la contraseña que usó con su correo electrónico al iniciar sesión en la aplicación Tapo.\nNo se requiere suscripción paga a Tapo Care.\nA menos que haya usado la misma contraseña para la nube que para su cuenta de la cámara , esta contraseña no es la misma.\nNo se necesita el correo electrónico y toda la comunicación sigue siendo completamente local."
+      },
+      "ip": {
+        "data": {
+          "ip_address": "IP Address"
+        },
+        "description": "Ingrese la dirección IP de la cámara.\n\nAsegúrese de crear una cuenta de cámara.\n\nLa cuenta de la cámara se crea a través de la aplicación Tapo en:\nConfiguración de la cámara > Configuración avanzada > Cuenta de la cámara.\n\n\n\nSi está utilizando VLAN , o alguna otra red avanzada, asegúrese de que los puertos 443, 554 y 2020 estén abiertos para la cámara".
+      },
+      "auth": {
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        },
+        "description": "Ingrese las credenciales de la cuenta de la cámara.\n\nEsta cuenta se crea a través de la aplicación Tapo en:\nConfiguración de la cámara > Configuración avanzada > Cuenta de la cámara"
+      },
+      "auth_cloud_password": {
+        "data": {
+          "cloud_password": "Contraseña de la nube"
+        },
+        "description": "La cámara requiere su contraseña de la nube para controlarla.\nEsta es la contraseña que usó con su correo electrónico al iniciar sesión en la aplicación Tapo.\nNo se requiere suscripción paga a Tapo Care.\nA menos que haya usado la misma contraseña para la nube que para su cuenta de la cámara , esta contraseña no es la misma.\nNo se necesita el correo electrónico y toda la comunicación sigue siendo completamente local."
+      },
+      "auth_optional_cloud": {
+        "data": {
+          "cloud_password": "Contraseña de la nube"
+        },
+        "description": "La cámara requiere su contraseña de la nube para las grabaciones.\nEsta es la contraseña que usó con su correo electrónico al iniciar sesión en la aplicación Tapo.\nNo se requiere la suscripción paga de Tapo Care.\nA menos que haya usado la misma contraseña para la nube que para su cuenta de la cámara , esta contraseña no es la misma.\nEl correo electrónico no es necesario y toda la comunicación sigue siendo totalmente local.\n\nPuede omitir este paso dejando la contraseña vacía e introduciéndola más tarde si no necesita la función de visualización de grabaciones."
+      },
+      "other_options": {
+        "data": {
+          "enable_motion_sensor": "Habilitar sensor de movimiento",
+          "enable_webhooks": "Habilitar webhooks",
+          "enable_time_sync": "Sincronizar automáticamente la hora",
+          "enable_stream": "Utilice Stream from Home Assistant (es necesario reiniciar)",
+          "enable_sound_detection": "Habilitar la detección de umbral de sonido (es necesario reiniciar)",
+          "sound_detection_peak": "[Detección de sonido] Pico en dB. 0 es muy alto y -100 es bajo.",
+          "sound_detection_duration": "[Detección de sonido] Cuánto tiempo debe permanecer el ruido por encima del pico para activar el estado.",
+          "sound_detection_reset": "[Detección de sonido] El tiempo para restablecer el estado después de que ningún ruido nuevo supere el pico.",
+          "extra_arguments": "Argumentos adicionales para ffmpeg (es necesario reiniciar)",
+          "custom_stream": "Enlace de transmisión personalizado",
+          "rtsp_transport": "Mecanismo de transporte RTSP"
+        },
+        "description": "¡Ya casi llegamos!\nSólo algunas opciones finales..."
+      }
+    },
+    "error": {
+      "invalid_stream_auth": "Datos de autenticación de flujo RTSP no válidos",
+      "account_suspended": "Cuenta suspendida temporalmente, inténtelo de nuevo más tarde.\n Consulte el registro para obtener más detalles.",
+      "not_tapo_device": "La dirección IP no es un dispositivo Tapo compatible",
+      "ports_closed": "El puerto 443, 554 o 2020 está cerrado",
+      "invalid_auth": "Datos de autenticación no válidos.\nAsegúrese de haber creado su cuenta de terceros a través de la aplicación Tapo.\nTambién puede probar si estas credenciales funcionan a través de transmisión rtsp, por ejemplo VLC usando el enlace\nrtsp://nombre de usuario:contraseña@Dirección IP:554 /flujo1",
+      "unknown": "Error desconocido",
+      "connection_failed": "La conexión falló",
+      "invalid_auth_cloud": "Contraseña de nube no válida.\nAsegúrese de ingresar la contraseña de su cuenta de nube y NO la contraseña que creó a través de la configuración de la cámara (a menos que sean las mismas).\nDebe ingresar la contraseña que utilizó con su correo electrónico al iniciar sesión en la aplicación Tapo.",
+      "cold_storage_path_does_not_exist": "La ruta de almacenamiento en frío no existe",
+      "camera_requires_admin": "Su cámara requiere una contraseña en la nube para controlarla",
+      "already_configured": "Dirección IP ya configurada",
+      "incorrect_peak_value": "Valor máximo de detección de sonido incorrecto".
+    },
+    "abort": {
+      "already_configured": "Dirección IP ya configurada",
+      "not_tapo_device": "El dispositivo descubierto no es una cámara Tapo",
+      "reauth_successful": "La reautenticación ha sido exitosa".
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "tapo_config_action": "Acción"
+        },
+        "description": "¿Qué es lo que quieres hacer?"
+      },
+      "sound_sensor": {
+        "data": {
+          "enable_sound_detection": "Habilitar la detección del umbral de sonido (es necesario reiniciar)",
+          "sound_detection_peak": "[Detección de sonido] Pico en dB. 0 es muy alto y -100 es bajo.",
+          "sound_detection_duration": "[Detección de sonido] Cuánto tiempo debe permanecer el ruido por encima del pico para activar el estado.",
+          "sound_detection_reset": "[Detección de sonido] El tiempo para restablecer el estado después de que ningún ruido nuevo haya superado el pico".
+        },
+        "description": "Configurar sensor de detección de ruido"
+      },
+      "media": {
+        "data": {
+          "media_view_days_order": "Orden de días en Media Browser",
+          "media_view_recordings_order": "Orden de grabaciones en Media Browser",
+          "media_sync_hours": "Número de horas a mantener sincronizado",
+          "media_sync_cold_storage_path": "[Requiere reinicio] Ruta de almacenamiento en frío"
+        },
+        "description": "Modificar la configuración de sincronización de medios de grabación"
+      },
+      "update_interval": {
+        "data": {
+          "update_interval_main": "Intervalo mínimo de actualización cuando se alimenta desde la red eléctrica",
+          "update_interval_battery": "Intervalo mínimo de actualización cuando funciona con energía solar o batería"
+        },
+        "description": "Modificar intervalo de actualización del dispositivo"
+      },
+      "auth": {
+        "data": {
+          "ip_address": "IP Address",
+          "username": "Nombre de usuario",
+          "password": "Contraseña",
+          "enable_motion_sensor": "Habilitar sensor de movimiento",
+          "enable_webhooks": "Habilitar webhooks",
+          "enable_stream": "Usar Stream from Home Assistant (es necesario reiniciar)",
+          "enable_time_sync": "Sincronizar la hora automáticamente",
+          "cloud_password":"Contraseña de la nube (opcional)",
+          "extra_arguments": "Argumentos adicionales para ffmpeg (es necesario reiniciar)",
+          "custom_stream": "Enlace de transmisión personalizado",
+          "rtsp_transport": "Mecanismo de transporte RTSP"
+        },
+        "description": "Modifica la configuración de tu cámara Tapo.\n\nUsa la transmisión desde Home Assistant:\nSí: mayor retraso de reproducción, menor uso de CPU, permite control de reproducción\nNo: retraso de reproducción muy corto, mayor uso de CPU, sin control de reproducción"
+      }
+    },
+    "error": {
+      "invalid_stream_auth": "Datos de autenticación de flujo RTSP no válidos",
+      "account_suspended": "Cuenta suspendida temporalmente, inténtelo de nuevo más tarde.\nConsulte el registro para obtener más detalles.",
+      "invalid_auth": "Datos de autenticación no válidos",
+      "unknown": "Error desconocido",
+      "connection_failed": "La conexión falló",
+      "invalid_auth_cloud": "Contraseña de nube no válida.\nAsegúrese de ingresar la contraseña de su cuenta de nube y NO la contraseña que creó a través de la configuración de la cámara (a menos que sean las mismas).\nDebe ingresar la contraseña que utilizó con su correo electrónico al iniciar sesión en la aplicación Tapo.",
+      "cold_storage_path_does_not_exist": "La ruta de almacenamiento en frío no existe",
+      "camera_requires_admin": "La cámara requiere una contraseña en la nube para controlarla",
+      "incorrect_peak_value": "Valor máximo de detección de sonido incorrecto.",
+      "incorrect_options_action": "Acción incorrecta elegida"
+    }
+  }
+}
